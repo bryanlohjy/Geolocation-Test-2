@@ -31,7 +31,10 @@
   				})
     		});
 
-  			marker.setLatLng(latlng);
+  			window.setInterval(function(){
+  				marker.setLatLng(latlng);
+  			},100);
+  			
   			marker.addTo(map);
 
   		}
