@@ -22,38 +22,112 @@
   	<div id="long"></div>
  	
   	<script>
-  	  	L.mapbox.accessToken = 'pk.eyJ1IjoiYnJ5YW5sb2hqeSIsImEiOiJjaW12Nnd2M3QwMm1pdXBra2hmeWQ2OWI3In0.M3vzM36scSxM3aTimLK56Q';
+  	 //  	L.mapbox.accessToken = 'pk.eyJ1IjoiYnJ5YW5sb2hqeSIsImEiOiJjaW12Nnd2M3QwMm1pdXBra2hmeWQ2OWI3In0.M3vzM36scSxM3aTimLK56Q';
 
-  		x = navigator.geolocation;
+  		// x = navigator.geolocation;
 
-  		x.watchPosition(success,failure);
+  		// x.watchPosition(success,failure);
 
-  		function success(position){
-  			//Fetch Coordinates
-  			var mylat = position.coords.latitude;
-  			var mylong = position.coords.longitude;
-  			$('#lat').html(mylat);
-  			$('#long').html(mylong);
+  		// function success(position){
+  		// 	//Fetch Coordinates
+  		// 	var mylat = position.coords.latitude;
+  		// 	var mylong = position.coords.longitude;
+  		// 	$('#lat').html(mylat);
+  		// 	$('#long').html(mylong);
 
-  			var map = L.mapbox.map('map', 'mapbox.streets').setView([mylat, mylong], 19);
+  		// 	var map = L.mapbox.map('map', 'mapbox.streets').setView([mylat, mylong], 19);
 
-  			var marker = L.marker([mylat, mylong], {
-    			icon: L.mapbox.marker.icon({
-      			'marker-color': '#586610'
-  				})
-    		});
+  		// 	var marker = L.marker([mylat, mylong], {
+    // 			icon: L.mapbox.marker.icon({
+    //   			'marker-color': '#586610'
+  		// 		})
+    // 		});
 
-  			window.setInterval(function(){
-  				marker.setLatLng([mylat,mylong]).update();
-  			},100);
+  		// 	window.setInterval(function(){
+  		// 		marker.setLatLng([mylat,mylong]).update();
+  		// 	},100);
   			
-  			marker.addTo(map);
+  		// 	marker.addTo(map);
 
-  		}
+  		// }
 
-  		function failure(){
-  			$('#lat').html("<p>Nope!</p>");
-  		}
+  		// function failure(){
+  		// 	$('#lat').html("<p>Nope!</p>");
+  		// }
+
+  	  	// L.mapbox.accessToken = 'pk.eyJ1IjoiYnJ5YW5sb2hqeSIsImEiOiJjaW12Nnd2M3QwMm1pdXBra2hmeWQ2OWI3In0.M3vzM36scSxM3aTimLK56Q';
+
+
+
+  		// function success(position){
+  		// 	//Fetch Coordinates
+  		// 	var mylat = position.coords.latitude;
+  		// 	var mylong = position.coords.longitude;
+  		// 	$('#lat').html(mylat);
+  		// 	$('#long').html(mylong);
+
+  		// 	var map = L.mapbox.map('map', 'mapbox.streets').setView([mylat, mylong], 19);
+
+  		// 	var marker = L.marker([mylat, mylong], {
+    // 			icon: L.mapbox.marker.icon({
+    //   			'marker-color': '#586610'
+  		// 		})
+    // 		});
+
+  		// 	window.setInterval(function(){
+  		// 		marker.setLatLng([mylat,mylong]).update();
+  		// 	},100);
+  			
+  		// 	marker.addTo(map);
+
+  		// }
+
+  		// function failure(){
+  		// 	$('#lat').html("<p>Nope!</p>");
+  		// }
+
+
+
+  	L.mapbox.accessToken = 'pk.eyJ1IjoiYnJ5YW5sb2hqeSIsImEiOiJjaW12Nnd2M3QwMm1pdXBra2hmeWQ2OWI3In0.M3vzM36scSxM3aTimLK56Q';
+
+	x = navigator.geolocation;
+
+  	x.watchPosition(success,failure);
+
+  	function success(position){
+  		//Fetch Coordinates
+  		var mylat = position.coords.latitude;
+  		var mylong = position.coords.longitude;
+  		$('#lat').html(mylat);
+  		$('#long').html(mylong);
+
+
+
+
+		var map = L.mapbox.map('map', 'mapbox.streets').setView([mylat, mylong],18);
+
+		var marker = L.marker([mylat, mylong], {
+			icon: L.mapbox.marker.icon({
+			'marker-color': '#f86767'
+	    	})
+		});
+
+		var t = 0;
+		window.setInterval(function() {
+	    // Making a lissajous curve just for fun.
+	    // Create your own animated path here.
+	    marker.setLatLng(L.latLng(
+	        mylat,mylong));
+	    t += 0.1;
+		}, 50);
+
+		marker.addTo(map);	
+	}
+
+
+	function failure(){
+  		$('#lat').html("<p>Nope!</p>");
+  	}
   	</script>
 
 
