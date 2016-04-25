@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+	<title>Geolocation Test 2</title>
+</head>
+	<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+  	<script src="js/jquery-1.12.3.js"></script>
+
+  	<script>
+  		x = navigator.geolocation;
+
+  		x.watchPosition(success,failure);
+
+  		function success(position){
+  			//Fetch Coordinates
+  			var mylat = position.coords.latitude;
+  			var mylong = position.coords.longitude;
+  			$('#lat').html(mylat);
+  			$('#long').html(mylong);
+  		}
+  		// 	//MapBox Ready Latitude and Longitude String
+
+  		// 	var coords= new google.maps.LatLng(mylat,mylong);
+
+  		// 	//Setting up our GOogle Map
+
+  		// 	var mapOptions =
+
+  		// 	//Creating the Map
+  		// 	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+  		// }
+
+  		function failure(){
+  			$('#lat').html("<p>Nope!</p>");
+  		}
+
+
+  	</script>
+
+
+
+<body>
+
+
+  	<div id="map">
+  	</div>
+
+  	<div id="lat"></div>
+  	<div id="long"></div>
+ 
+
+</body>
+</html>
