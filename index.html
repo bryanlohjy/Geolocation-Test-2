@@ -98,13 +98,9 @@
   		//Fetch Coordinates
   		var mylat = position.coords.latitude;
   		var mylong = position.coords.longitude;
-  		$('#lat').html(mylat);
-  		$('#long').html(mylong);
 
 
-
-
-		var map = L.mapbox.map('map', 'mapbox.streets').setView([mylat, mylong],18);
+		var map = L.mapbox.map('map', 'mapbox.streets').setView([mylat, mylong],20);
 
 		var marker = L.marker([mylat, mylong], {
 			icon: L.mapbox.marker.icon({
@@ -112,17 +108,19 @@
 	    	})
 		});
 
-		var t = 0;
 		window.setInterval(function() {
 	    // Making a lissajous curve just for fun.
 	    // Create your own animated path here.
 	    marker.setLatLng(L.latLng(
-	        mylat,mylong));
-	    t += 0.1;
-		}, 50);
+	        mylat,
+	        mylong));
+	    }, 50);
 
 		marker.addTo(map);	
 	}
+
+  		$('#lat').html(mylat);
+  		$('#long').html(mylong);
 
 
 	function failure(){
