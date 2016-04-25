@@ -8,6 +8,19 @@
 	<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
   	<script src="js/jquery-1.12.3.js"></script>
 	<title>Geolocation Test 2</title>
+</head>
+
+
+
+<body>
+
+
+  	<div id="map">
+  	</div>
+
+  	<div id="lat"></div>
+  	<div id="long"></div>
+ 	
   	<script>
   	  	L.mapbox.accessToken = 'pk.eyJ1IjoiYnJ5YW5sb2hqeSIsImEiOiJjaW12Nnd2M3QwMm1pdXBra2hmeWQ2OWI3In0.M3vzM36scSxM3aTimLK56Q';
 
@@ -41,36 +54,8 @@
   		function failure(){
   			$('#lat').html("<p>Nope!</p>");
   		}
-
-
-
-
-  // 		navigator.geolocation.watchPosition(plot);
-
-		// function plot(pos){
-		// 	var lat=pos.coords.latitude;
-		// 	var lon=pos.coords.longitude;
-		// 	var map = L.mapbox.map('map', 'mapbox.streets')
-		//     .setView([lat, lon], 19);
-		    
-		//     L.marker([lat,lon]).addTo(map);
-		// }
-
-
   	</script>
-</head>
 
-
-
-<body>
-
-
-  	<div id="map">
-  	</div>
-
-  	<div id="lat"></div>
-  	<div id="long"></div>
- 
 
 </body>
 </html>
