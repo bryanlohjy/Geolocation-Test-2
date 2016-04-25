@@ -24,7 +24,7 @@
 
   			var latlng = L.latLng(mylat,mylong);
   			var map = L.mapbox.map('map', 'mapbox.streets').setView([mylat, mylong], 19);
-  			L.marker([mylat,mylong]).setLatLng(latlng);
+  			L.marker([mylat,mylong]).addTo(map).setLatLng(latlng);
 
   		}
 
