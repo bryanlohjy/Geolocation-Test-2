@@ -24,8 +24,15 @@
 
   			var latlng = L.latLng(mylat,mylong);
   			var map = L.mapbox.map('map', 'mapbox.streets').setView([mylat, mylong], 19);
-  			L.marker([mylat,mylong]).addTo(map);
+
+  			var marker = L.marker([mylat, mylong], {
+    			icon: L.mapbox.marker.icon({
+      			'marker-color': '#f86767'
+  				})
+    		});
+
   			marker.setLatLng(latlng);
+  			marker.addTo(map);
 
   		}
 
