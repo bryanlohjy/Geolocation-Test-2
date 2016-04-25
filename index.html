@@ -27,12 +27,12 @@
 
   			var marker = L.marker([mylat, mylong], {
     			icon: L.mapbox.marker.icon({
-      			'marker-color': '#f86767'
+      			'marker-color': '#520610'
   				})
     		});
 
   			window.setInterval(function(){
-  				marker.setLatLng(latlng);
+  				marker.setLatLng(L.latLng(latlng));
   			},100);
   			
   			marker.addTo(map);
