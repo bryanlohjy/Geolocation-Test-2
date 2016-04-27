@@ -1,133 +1,22 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-  	<meta charset="utf-8">
-	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
-	<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
-  	<script src="js/jquery-1.12.3.js"></script>
-	<title>Geolocation Test 2</title>
-</head>
+  <head>
+  	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' charset="utf-8" />
 
+  	<link rel="stylesheet" type="text/css" href="style.css">
+  	<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
 
+    <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+    <script src="js/jquery-1.12.3.js"></script>
+    <script src="js/location.js"></script>
 
-<body>
+  	<title>Geolocation</title>
+  </head>
 
-
-  	<div id="map">
-  	</div>
-
-  	<div id="lat"></div>
-  	<div id="long"></div>
- 	
-  	<script>
-  	 //  	L.mapbox.accessToken = 'pk.eyJ1IjoiYnJ5YW5sb2hqeSIsImEiOiJjaW12Nnd2M3QwMm1pdXBra2hmeWQ2OWI3In0.M3vzM36scSxM3aTimLK56Q';
-
-  		// x = navigator.geolocation;
-
-  		// x.watchPosition(success,failure);
-
-  		// function success(position){
-  		// 	//Fetch Coordinates
-  		// 	var mylat = position.coords.latitude;
-  		// 	var mylong = position.coords.longitude;
-  		// 	$('#lat').html(mylat);
-  		// 	$('#long').html(mylong);
-
-  		// 	var map = L.mapbox.map('map', 'mapbox.streets').setView([mylat, mylong], 19);
-
-  		// 	var marker = L.marker([mylat, mylong], {
-    // 			icon: L.mapbox.marker.icon({
-    //   			'marker-color': '#586610'
-  		// 		})
-    // 		});
-
-  		// 	window.setInterval(function(){
-  		// 		marker.setLatLng([mylat,mylong]).update();
-  		// 	},100);
-  			
-  		// 	marker.addTo(map);
-
-  		// }
-
-  		// function failure(){
-  		// 	$('#lat').html("<p>Nope!</p>");
-  		// }
-
-  	  	// L.mapbox.accessToken = 'pk.eyJ1IjoiYnJ5YW5sb2hqeSIsImEiOiJjaW12Nnd2M3QwMm1pdXBra2hmeWQ2OWI3In0.M3vzM36scSxM3aTimLK56Q';
-
-
-
-  		// function success(position){
-  		// 	//Fetch Coordinates
-  		// 	var mylat = position.coords.latitude;
-  		// 	var mylong = position.coords.longitude;
-  		// 	$('#lat').html(mylat);
-  		// 	$('#long').html(mylong);
-
-  		// 	var map = L.mapbox.map('map', 'mapbox.streets').setView([mylat, mylong], 19);
-
-  		// 	var marker = L.marker([mylat, mylong], {
-    // 			icon: L.mapbox.marker.icon({
-    //   			'marker-color': '#586610'
-  		// 		})
-    // 		});
-
-  		// 	window.setInterval(function(){
-  		// 		marker.setLatLng([mylat,mylong]).update();
-  		// 	},100);
-  			
-  		// 	marker.addTo(map);
-
-  		// }
-
-  		// function failure(){
-  		// 	$('#lat').html("<p>Nope!</p>");
-  		// }
-
-
-
-  	L.mapbox.accessToken = 'pk.eyJ1IjoiYnJ5YW5sb2hqeSIsImEiOiJjaW12Nnd2M3QwMm1pdXBra2hmeWQ2OWI3In0.M3vzM36scSxM3aTimLK56Q';
-
-	x = navigator.geolocation;
-
-  	x.watchPosition(success,failure);
-
-  	function success(position){
-  		//Fetch Coordinates
-  		var mylat = position.coords.latitude;
-  		var mylong = position.coords.longitude;
-
-
-		var map = L.mapbox.map('map', 'mapbox.streets').setView([mylat, mylong],20);
-
-		var marker = L.marker([mylat, mylong], {
-			icon: L.mapbox.marker.icon({
-			'marker-color': '#f86767'
-	    	})
-		});
-
-		window.setInterval(function() {
-	    // Making a lissajous curve just for fun.
-	    // Create your own animated path here.
-	    marker.setLatLng(L.latLng(
-	        mylat,
-	        mylong));
-	    }, 50);
-
-		marker.addTo(map);	
-	}
-
-  		$('#lat').html(mylat);
-  		$('#long').html(mylong);
-
-
-	function failure(){
-  		$('#lat').html("<p>Nope!</p>");
-  	}
-  	</script>
-
-
-</body>
+  <body>
+  	<div id='map'>
+      <p class="status">Waiting for your location...</p>
+    </div>
+  </body>
 </html>
